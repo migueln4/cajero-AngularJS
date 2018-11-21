@@ -1,0 +1,22 @@
+select(ng-model="lista.productoSeleccionado")
+	option(ng-repeat="producto in lista.productos | orderBy:'nombre'", value="{{producto.id}}") {{producto.nombre}}
+input(type="text", ng-model="lista.cantidad")
+input(type="button", value="Añadir", ng-click="lista.addProductoAlCarrito()")
+
+table(cellspacing="0")
+	thead
+		tr
+			td Producto
+			td Precio
+			td Cantidad
+			td Total
+	tr(ng-repeat="producto in lista.carrito")
+		td {{producto.nombre}}
+		td {{producto.precio}}
+		td {{producto.cantidad}}
+		td {{producto.total}}
+	tr.total
+		td
+		td
+		td
+		td {{lista.getTotalCarrito()}}

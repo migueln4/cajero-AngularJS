@@ -1,3 +1,4 @@
+<!--------------
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,7 @@
 	<title>Cajero</title>
 </head>
 <body>
-
+---->
 
 	<select name="" id="" ng-model="lista.productoSeleccionado">
 		<option ng-repeat="producto in lista.productos" value="{{producto.id}}">{{producto.nombre}}</option>
@@ -28,17 +29,18 @@
 		</thead>
 		<tr ng-repeat="producto in lista.carrito">
 				<td>{{producto.nombre}}</td>
-				<td>{{producto.precio}}</td>
+				<td>{{producto.precio | euros}}</td>
 				<td>{{producto.cantidad}}</td>
-				<td>{{producto.total}}</td>
+				<td>{{producto.total | currency: "€"}}</td>
 		</tr>
 		<tr class="total">
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>{{lista.getTotalCarrito()}}</td>
+			<td>{{lista.getTotalCarrito() | currency: "€"}}</td>
 		</tr>
 	</table>
-
+<!--------------
 </body>
 </html>
+---->
